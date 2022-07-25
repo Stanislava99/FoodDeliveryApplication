@@ -16,7 +16,7 @@ import java.util.Optional;
 public class MenuServiceImpl implements MenuService {
 
     @Autowired
-    protected MenuItemRepository menuItemRepository;
+    MenuItemRepository menuItemRepository;
 
     @Override
     public List<MenuItem> getAllMenuItems (){

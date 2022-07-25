@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table()
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "user_info")
 public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +23,12 @@ public class UserInfo {
     private int phoneNumber;
     @Column
     private String address;
+    @Column
+    private String city;
+    @Column
+    private String zip;
+    @Column
+    private String state;
+
 
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "order_items")
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItems {

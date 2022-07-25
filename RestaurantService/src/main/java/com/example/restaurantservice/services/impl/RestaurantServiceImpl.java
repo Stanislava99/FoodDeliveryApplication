@@ -1,6 +1,7 @@
 package com.example.restaurantservice.services.impl;
 
 import com.example.restaurantservice.models.Restaurant;
+import com.example.restaurantservice.repos.MenuItemRepository;
 import com.example.restaurantservice.repos.RestaurantRepository;
 import com.example.restaurantservice.services.RestaurantService;
 import com.example.restaurantservice.services.exceptions.RestaurantNotFoundException;
@@ -17,7 +18,9 @@ import java.util.Optional;
 public class RestaurantServiceImpl implements RestaurantService {
 
     @Autowired
-    protected RestaurantRepository restaurantRepository;
+    RestaurantRepository restaurantRepository;
+    @Autowired
+    MenuItemRepository menuItemRepository;
 
     @Override
     public List<Restaurant> getAllRestaurants() {
@@ -43,7 +46,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     public ResponseEntity<String> deleteRestaurantById(Long restaurantId) {
         if (restaurantRepository.findById(restaurantId).isPresent()) {
             restaurantRepository.deleteById(restaurantId);
-            return new ResponseEntity<>("Restaurant deleted successfully", HttpStatus.OK);
+            menuItemRepository.deleteAll(menuItemRepository.getAllByRestaurantId(restaurantId));
+            return new ResponseEntity<>("Restaurant with all its items deleted successfully", HttpStatus.OK);
         }
         return new ResponseEntity<>(new RestaurantNotFoundException().toString(), HttpStatus.BAD_REQUEST);
     }

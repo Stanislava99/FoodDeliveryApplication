@@ -39,7 +39,7 @@ public class MenuItemController {
         return menuService.addMenuItem(menuItem);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add/list")
     @ResponseStatus(HttpStatus.CREATED)
     public void addMenuItems(@RequestBody List<MenuItem> menuItems){
         menuService.addMenuItems(menuItems);

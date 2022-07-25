@@ -32,7 +32,7 @@ public class RestaurantController {
         return restaurantService.addRestaurant(restaurant);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add/list")
     @ResponseStatus(HttpStatus.CREATED)
     public void addRestaurants(@RequestBody List<Restaurant> restaurants) {
         restaurantService.addRestaurants(restaurants);
