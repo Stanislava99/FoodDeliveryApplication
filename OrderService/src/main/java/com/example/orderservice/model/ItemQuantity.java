@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.ws.rs.DefaultValue;
 
 @Entity
 @NoArgsConstructor
@@ -18,11 +19,14 @@ public class ItemQuantity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemOrderId;
     private Long menuItemId;
+    private Long orderId;
+    @DefaultValue("1")
     private int quantity;
     private int price;
 
-    public ItemQuantity(Long menuItemId, int quantity) {
+    public ItemQuantity(Long menuItemId,Long orderId, int quantity) {
         this.menuItemId = menuItemId;
+        this.orderId = orderId;
         this.quantity = quantity;
     }
 }
