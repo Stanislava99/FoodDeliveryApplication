@@ -12,6 +12,9 @@ public interface ItemQuantityService {
     Optional<ItemQuantity> getItemQuantityById (Long id);
     ResponseEntity<ItemQuantity> addItemQuantity(ItemQuantity itemQuantity);
     ResponseEntity<String> updateItemQuantityById(Long id);
+
+    ResponseEntity<String> updateItemQuantityById(Long id, ItemQuantity itemQuantity);
+
     ResponseEntity<String> deleteItemQuantityById(Long id);
     ResponseEntity<String> deleteAllItems ();
 }

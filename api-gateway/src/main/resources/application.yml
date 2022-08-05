@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA.URI:http://localhost:8761/eureka}
+    instance:
+      prefer-ip-address: true
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: api-auth
+          uri: lb://api-auth
+          predicates:
+            - Path=/auth/**
+        - id: restaurant-service
+          uri: lb://restaurant-service
+          predicates:
+            - Path=/restaurant/**
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/user/**
+zuul:
+  ignored-services: *
+  routes:
+    auth-server: path=/auth-api/**
+      serviceId: auth-service
+      strip-prefix: false
+    order-server: path=/order-api/**
+      service-id: order-service
+

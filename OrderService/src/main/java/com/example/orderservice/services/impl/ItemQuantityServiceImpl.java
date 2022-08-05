@@ -32,6 +32,11 @@ public class ItemQuantityServiceImpl implements ItemQuantityService {
     }
 
     @Override
+    public ResponseEntity<String> updateItemQuantityById(Long id) {
+        return null;
+    }
+
+    @Override
     public ResponseEntity<String> updateItemQuantityById(Long id, ItemQuantity itemQuantity) {
         return null;
     }
