@@ -66,7 +66,7 @@ create table if not exists role_user (
 -- token store
 create table if not exists oauth_client_token (
   token_id VARCHAR(256),
-  token LONG VARBINARY,
+  token VARBINARY(200),
   authentication_id VARCHAR(256) PRIMARY KEY,
   user_name VARCHAR(256),
   client_id VARCHAR(256)
@@ -74,22 +74,22 @@ create table if not exists oauth_client_token (
 
 create table if not exists oauth_access_token (
   token_id VARCHAR(256),
-  token LONG VARBINARY,
+  token VARBINARY(200),
   authentication_id VARCHAR(256) PRIMARY KEY,
   user_name VARCHAR(256),
   client_id VARCHAR(256),
-  authentication LONG VARBINARY,
+  authentication VARBINARY(200),
   refresh_token VARCHAR(256)
 );
 
 create table if not exists oauth_refresh_token (
   token_id VARCHAR(256),
-  token LONG VARBINARY,
-  authentication LONG VARBINARY
+  token VARBINARY(200),
+  authentication VARBINARY(200)
 );
 
 create table if not exists oauth_code (
-  code VARCHAR(256), authentication LONG VARBINARY
+  code VARCHAR(256), authentication VARBINARY(200)
 );
 
 create table if not exists oauth_approvals (
