@@ -1,10 +1,8 @@
 package com.example.orderservice.model;
 
-import com.example.restaurantservice.repos.MenuItemRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.ws.rs.DefaultValue;

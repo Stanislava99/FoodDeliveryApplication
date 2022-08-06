@@ -15,4 +15,13 @@ spring:
   application:
     name: order-service
 
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9191/auth-api/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin
+
+
 

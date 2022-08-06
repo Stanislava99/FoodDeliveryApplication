@@ -1,5 +1,7 @@
 server:
   port: 8001
+  servlet:
+    context-path: /restaurant-api
 
 spring:
   datasource:
@@ -12,3 +14,11 @@ spring:
       ddl-auto: update
   application:
     name: restaurant-service
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9191/auth-api/oauth/check_token
+    client:
+      client-id: mobile
+      client-secret: pin
