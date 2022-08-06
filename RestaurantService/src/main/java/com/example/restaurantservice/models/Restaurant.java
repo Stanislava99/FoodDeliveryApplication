@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @NoArgsConstructor
@@ -17,9 +14,16 @@ import javax.persistence.Table;
 @Table(name = "restaurant")
 public class Restaurant {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
 
     @Column
     private String name;
+
+    @Column
+    private String address;
+
+    @Column
+    private String city;
 }

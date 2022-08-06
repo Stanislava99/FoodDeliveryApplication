@@ -48,8 +48,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public ResponseEntity<String> updateOrder(Order order) {
-        if (orderRepository.findById(order.getOrderId()).isPresent()){
+    public ResponseEntity<String> updateOrder(Order order, Long id) {
+        if (orderRepository.findById(id).isPresent()){
+            orderRepository.save(order);
             return new ResponseEntity<>("Order updated", HttpStatus.OK);
         }
         return new ResponseEntity<>(new OrderNotFoundException().toString(),HttpStatus.BAD_REQUEST);

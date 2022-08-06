@@ -74,7 +74,7 @@ create table if not exists oauth_client_token (
 
 create table if not exists oauth_access_token (
   token_id VARCHAR(256),
-  token VARBINARY(200),
+  token VARBINARY(256),
   authentication_id VARCHAR(256) PRIMARY KEY,
   user_name VARCHAR(256),
   client_id VARCHAR(256),

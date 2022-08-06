@@ -36,8 +36,8 @@ public class OrderController {
 
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<String> updateOrder(@RequestBody Order order){
-        return orderService.updateOrder(order);
+    public ResponseEntity<String> updateOrder(@RequestBody Order order, @PathVariable Long id){
+        return orderService.updateOrder(order, id);
     }
 
 

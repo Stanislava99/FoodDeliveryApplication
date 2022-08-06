@@ -10,6 +10,6 @@ public interface OrderService {
     List<Order> getAllOrders();
     Optional<Order> getOrderById(Long id);
     ResponseEntity<Order> createOrder(Order order);
-    ResponseEntity<String> updateOrder(Order order);
+    ResponseEntity<String> updateOrder(Order order, Long id);
     ResponseEntity<String> deleteOrder(Long id);
 }

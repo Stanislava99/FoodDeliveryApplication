@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -16,10 +13,11 @@ import javax.persistence.Table;
 @Table(name = "menu_item")
 public class MenuItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
 
-    @Column
+    @Column (name = "restaurant_id")
     private Long restaurantId;
 
     @Column
