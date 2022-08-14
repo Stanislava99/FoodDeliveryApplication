@@ -32,13 +32,7 @@ public class RestaurantController {
         return restaurantService.addRestaurant(restaurant);
     }
 
-    @PostMapping("/add/list")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void addRestaurants(@RequestBody List<Restaurant> restaurants) {
-        restaurantService.addRestaurants(restaurants);
-    }
-
-    @DeleteMapping("/delete-{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteRestaurantById(@PathVariable Long id){
         return restaurantService.deleteRestaurantById(id);
     }

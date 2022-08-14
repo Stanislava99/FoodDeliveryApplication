@@ -15,16 +15,22 @@ import javax.ws.rs.DefaultValue;
 public class ItemQuantity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long itemOrderId;
-    private Long menuItemId;
-    private Long orderId;
+    @Column(name = "item_quatity_id")
+    private Long itemQuantityId;
+
+    @Column(name = "item_id")
+    private Long itemId;
     @DefaultValue("1")
     private int quantity;
     private int price;
 
-    public ItemQuantity(Long menuItemId,Long orderId, int quantity) {
-        this.menuItemId = menuItemId;
-        this.orderId = orderId;
+    @ManyToOne
+    @JoinColumn
+    private Order order;
+
+    public ItemQuantity(Long itemQuantityId, int quantity, int price) {
+        this.itemQuantityId = itemQuantityId;
         this.quantity = quantity;
+        this.price = price;
     }
 }
