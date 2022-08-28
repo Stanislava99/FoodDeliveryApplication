@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface RestaurantService {
     List<Restaurant> getAllRestaurants();
     Optional<Restaurant> getRestaurantById(Long restaurantId);
-    ResponseEntity<Restaurant> addRestaurant (Restaurant restaurant);
+    Restaurant addRestaurant (Restaurant restaurant);
     ResponseEntity<String> deleteRestaurantById(Long restaurantId);
 }

@@ -29,7 +29,7 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER, mappedBy = "order")
     private List<ItemQuantity> itemQuantityList;
 
-    public Order(String username, String userAddress, int totalPrice, String specialNote, Long userId, List<ItemQuantity> itemQuantityList) {
+    public Order(String username, String userAddress, int totalPrice, String specialNote, List<ItemQuantity> itemQuantityList) {
         this.username = username;
         this.userAddress = userAddress;
         this.totalPrice = totalPrice;

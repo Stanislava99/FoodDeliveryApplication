@@ -1,6 +1,5 @@
 package com.example.restaurantservice.services.impl;
 
-import com.example.restaurantservice.models.Item;
 import com.example.restaurantservice.models.Restaurant;
 import com.example.restaurantservice.repos.ItemRepository;
 import com.example.restaurantservice.repos.RestaurantRepository;
@@ -12,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -35,8 +33,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public ResponseEntity<Restaurant> addRestaurant(Restaurant restaurant) {
-        return ResponseEntity.ok(restaurantRepository.save(restaurant));
+    public Restaurant addRestaurant(Restaurant restaurant) {
+        return restaurantRepository.save(restaurant);
     }
 
     @Override

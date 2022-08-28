@@ -4,6 +4,7 @@ import com.example.restaurantservice.models.Restaurant;
 import com.example.restaurantservice.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +27,9 @@ public class RestaurantController {
         return restaurantService.getRestaurantById(id);
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add",consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant restaurant){
+    public Restaurant addRestaurant(@RequestBody Restaurant restaurant){
         return restaurantService.addRestaurant(restaurant);
     }
 

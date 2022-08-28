@@ -1,12 +1,16 @@
 package com.example.restaurantservice.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -35,8 +39,9 @@ public class Restaurant {
     @Column
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER, mappedBy = "restaurant")
-    private Set<Item> menuItems;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "restaurant")
+    @JsonIgnore
+    private List<Item> menuItems;
 
 
 }

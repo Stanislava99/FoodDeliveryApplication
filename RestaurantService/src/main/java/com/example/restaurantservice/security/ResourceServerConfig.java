@@ -25,12 +25,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.csrf().disable()
                 .sessionManagement().disable()
                 .authorizeRequests()
-                .and()
-                .requestMatchers()
-                .antMatchers(SECURED_PATTERN).and().authorizeRequests()
-                .antMatchers(HttpMethod.POST, SECURED_PATTERN)
-                .access(SECURED_WRITE_SCOPE)
-                .anyRequest().access(SECURED_READ_SCOPE);
+                .anyRequest()
+                .permitAll();
+//                .and()
+//                .requestMatchers()
+//                .antMatchers(SECURED_PATTERN).and().authorizeRequests()
+//                .antMatchers(HttpMethod.POST, SECURED_PATTERN)
+//                .access(SECURED_WRITE_SCOPE)
+//                .anyRequest().access(SECURED_READ_SCOPE);
     }
 
 }
